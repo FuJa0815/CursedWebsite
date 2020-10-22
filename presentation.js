@@ -18,7 +18,7 @@ function openLoginModal() {
             type: 'POST',
             cache: false,
             crossDomain: true,
-            url: 'http://10.10.0.8:5560/isqlplus/login.uix',
+            url: 'http://78.104.62.3/isqlplus/login.uix',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             contentType: 'application/x-www-form-urlencoded; charset=utf-8',
             data: {
@@ -66,7 +66,7 @@ $(document).ready(function(e) {
         $.ajax({
             async: false,
             type: 'POST',
-            url: 'http://10.10.0.8:5560/isqlplus/workspace.uix',
+            url: 'http://78.104.62.3/isqlplus/workspace.uix',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             contentType: 'application/x-www-form-urlencoded; charset=utf-8',
             cache: false,

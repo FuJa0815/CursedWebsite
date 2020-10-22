@@ -1,0 +1,46 @@
+html,body,.container,.row,.row>div {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+textarea {
+    resize: none;
+    border: none;
+}
+#toc {
+    background: #CCC;
+}
+#presentation {
+    background: #222;
+    color: #FFF;
+    text-align: center;
+}
+.carousel-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+#sqlin {
+    background: #B0B0B0;
+    height: 100%;
+}
+.list-group-item,textarea {
+    background: transparent;
+}
+#sqlout {
+    background: #CCC;
+    overflow: scroll;
+}
+.container {
+    max-width: none;   
+}
+#firstrow {
+    height: 65%;
+}
+#secondrow {
+    height: 35%;
+}

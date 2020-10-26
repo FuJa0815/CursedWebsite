@@ -13,12 +13,14 @@ function openLoginModal() {
         if (username == "" || password == "") return;
         $("#completeLogin").prop("disabled", true);
         $("#completeLogin").text("Logging in...");
+        console.log($("#externalCheck:checked").val())
+        console.log(($("#externalCheck:checked").val()?'http://78.104.62.3':'http://10.10.0.2')+'/isqlplus/login.uix')
         $.ajax({
             async: true,
             type: 'POST',
             cache: false,
             crossDomain: true,
-            url: 'http://78.104.62.3/isqlplus/login.uix',
+            url: ($("#externalCheck:checked").val()?'http://78.104.62.3':'http://10.10.0.2')+'/isqlplus/login.uix',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             contentType: 'application/x-www-form-urlencoded; charset=utf-8',
             data: {
@@ -66,7 +68,7 @@ $(document).ready(function(e) {
         $.ajax({
             async: false,
             type: 'POST',
-            url: 'http://78.104.62.3/isqlplus/workspace.uix',
+            url: ($("#externalCheck:checked").val()?'http://78.104.62.3':'http://10.10.0.2')+'/isqlplus/workspace.uix',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             contentType: 'application/x-www-form-urlencoded; charset=utf-8',
             cache: false,

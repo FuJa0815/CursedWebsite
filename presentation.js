@@ -1,4 +1,4 @@
-var slides = 13;
+var slides = 17;
 var sqls = [];
 var loginData = undefined;
 

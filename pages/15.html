@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OUT</title>
+        <sql>CREATE OR REPLACE PROCEDURE out_proc (salary OUT NUMBER)
+IS
+BEGIN
+    SELECT AVG(salary) INTO salary FROM employees;
+END;
+/
+DECLARE
+  c NUMBER;
+BEGIN
+  out_proc(c);
+  DBMS_OUTPUT.PUT_LINE(c);
+END;
+/
+DROP PROCEDURE out_proc;</sql>
+    </head>
+    <body>
+        <h1>OUT parameters are write-only</h1>
+        <p>Using OUT parameters you can return a value back to the caller.</p>
+        <p>The caller cannot provide a value for OUT parameters.</p>
+        <p>OUT parameters are passed by value.</p>
+    </body>
+</html>

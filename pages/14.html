@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IN</title>
+        <sql>CREATE OR REPLACE PROCEDURE in_proc (input IN NUMBER)
+IS
+BEGIN
+  DBMS_OUTPUT.PUT_LINE(input);
+END;
+/
+EXEC in_proc(15);
+/
+DROP PROCEDURE in_proc;</sql>
+    </head>
+    <body>
+        <h1>IN parameters are read-only</h1>
+        <p>IN is the default parameter type and does not have to be explicitly written.</p>
+        <p>IN parameters behave like constants.</p>
+        <p>IN parameters are passed by reference.</p>
+    </body>
+</html>

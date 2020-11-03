@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IN OUT</title>
+        <sql>CREATE OR REPLACE PROCEDURE in_out_proc (num IN OUT NUMBER)
+IS
+BEGIN
+    num := num + 1;
+END;
+/
+DECLARE
+  num NUMBER := 50;
+BEGIN
+  in_out_proc(num);
+  DBMS_OUTPUT.PUT_LINE(num);
+END;
+/
+DROP PROCEDURE in_out_proc;</sql>
+    </head>
+    <body>
+        <h1>IN OUT parameters are readable and writeable</h1>
+        <p>Using IN OUT parameters the caller can provide a value to the procedure and the procedure can override the value.</p>
+        <p>Often times stored functions would make more sense.</p>
+        <p>IN OUT parameters are passed by value.</p>
+    </body>
+</html>

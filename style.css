@@ -2,38 +2,63 @@ html,body,.container,.row,.row>div {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden;
 }
 textarea {
     resize: none;
     border: none;
+    overflow: auto;
 }
 #toc {
     background: #CCC;
+    font-size: 120%;
+    overflow: auto;
 }
 #presentation {
     background: #222;
     color: #FFF;
-    text-align: center;
+    font-size: 250%;
 }
-.carousel-inner {
+h1 {
+    font-size: 120%;
+}
+.carousel-item>div {
     position: absolute;
-    top: 50%;
     left: 50%;
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+pre code {
+    color: darkcyan;
+}
+code {
+    color: darkcyan;
+}
+.spoiler {
+    filter: blur(10px);
+    transition: filter .3s;
+}
+.spoiler:hover {
+    filter: none;
+    transition-delay: 1s;
 }
 #sqlin {
     background: #B0B0B0;
     height: 100%;
+    font-size: 200%;
 }
 .list-group-item,textarea {
     background: transparent;
 }
 #sqlout {
     background: #CCC;
-    overflow: scroll;
+    overflow: auto;
+    font-size: 200%;
+}
+#sqlForm>div {
+    height: 10%;
+}
+#sqlForm>textarea {
+    height: 80%;
 }
 .container {
     max-width: none;   

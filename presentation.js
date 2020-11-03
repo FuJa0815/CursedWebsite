@@ -1,4 +1,4 @@
-var slides = 2;
+var slides = 13;
 var sqls = [];
 var loginData = undefined;
 
@@ -6,6 +6,8 @@ function currentIndex() {
     return $("#toc>.active").index();
 }
 function openLoginModal() {
+    $("#completeLogin").prop("disabled", false);
+    $("#completeLogin").text("Login");
     $("#loginModal").modal({backdrop: 'static', keyboard: false});
     $("#completeLogin").click(function() {
         var username = $("input[name=username]").val();
@@ -74,7 +76,7 @@ $(document).ready(function(e) {
             cache: false,
             crossDomain: true,
             data: {
-                script: $("#sqlin textarea").val(),
+                script: "SET SERVEROUTPUT ON;\n" + $("#sqlin textarea").val(),
                 event: "execute"
             },
             xhrFields: {
@@ -91,10 +93,11 @@ $(document).ready(function(e) {
             async: false,
             type: 'GET',
             url: 'pages/'+i+'.html',
+            cache: false,
             success: function( data ) {
                 var sql = $(data).filter('sql').text();
                 sqls[i] = { init: sql, text: sql };
-                $(".carousel-inner").append("<div class=\"carousel-item"+(i==0?" active":"")+"\" id=\""+(i)+"\">"+data.replace(/^.*?<body>(.*?)<\/body>.*?$/s,"$1")+"</div>");
+                $(".carousel-inner").append("<div class=\"carousel-item h-100"+(i==0?" active":"")+"\" id=\""+(i)+"\"><div>"+data.replace(/^.*?<body>(.*?)<\/body>.*?$/s,"$1")+"</div></div>");
                 $("#toc").append(
                     "<a class=\"list-group-item list-group-item-action"+(i==0?" active":"")+"\" href=\"#"+(i)+"\">"+($(data).filter('title').text())+"</a>");
             }
@@ -141,7 +144,7 @@ $(document).ready(function(e) {
 
     function getDelay(){
         var date = new Date();
-        var hour = date.getMinutes();
+        var hour = date.getMinutes()+1;
         return (60 - hour) * 60 * 1000; //get the milliseconds until the next full hour
     }
     

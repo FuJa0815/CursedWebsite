@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Creation structure</title>
+        <sql>CREATE OR REPLACE PROCEDURE print (line VARCHAR2)
+IS
+  prefix VARCHAR2(2) := '> ';
+BEGIN
+  DBMS_OUTPUT.PUT_LINE(prefix||line);
+END;
+/
+CREATE OR REPLACE PROCEDURE hello_world
+IS
+BEGIN
+  print ('Hello world!');
+END;</sql>
+    </head>
+    <body>
+        <h1>Creation structure:</h1>
+        <pre><code>CREATE [OR REPLACE] PROCEDURE procedure_name [(parameter_name [IN | OUT | IN OUT] type[, ...])]
+IS
+  [Declaration section]
+BEGIN
+  [Execution statements]
+[EXCEPTION]
+  [Exception handler]
+END [procedure_name];</code></pre>
+          <p>Make sure to run and understand the code below</p>
+    </body>
+</html>

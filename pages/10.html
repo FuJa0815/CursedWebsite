@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task 1 Solution</title>
+        <sql></sql>
+    </head>
+    <body>
+        <h1>Could you do it?</h1>
+        <pre><code>CREATE OR REPLACE PROCEDURE print_name (emp_id employees.employee_id%TYPE)
+IS
+    emp_name employees.last_name%TYPE;
+BEGIN
+    SELECT last_name INTO emp_name FROM employees WHERE employee_id = emp_id;
+    DBMS_OUTPUT.PUT_LINE(emp_name);
+END;</code></pre>
+        <p>If you couldn't find a solution, copy the code above and execute it.</p>
+    </body>
+</html>

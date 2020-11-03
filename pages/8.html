@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Error handeling</title>
+        <sql>CREATE OR REPLACE PROCEDURE test
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('hello!');
+END;
+/
+show errors;
+DROP PROCEDURE test;
+        </sql>
+    </head>
+    <body>
+        <h1>In true PL/SQL fashion, errors are quite hidden and obscure</h1>
+        <p>Even if there were compiling errors, PL/SQL creates the stored procedure. Therefore you should almost always use <code>CREATE OR REPLACE</code></p>
+        <p>To get the error messages, you must run <code>show errors;</code></p>
+        <p>Run and fix the code below</p>
+    </body>
+</html>

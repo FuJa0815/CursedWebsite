@@ -55,7 +55,7 @@ function openLoginModal() {
                 }
             },
             error: function(e) {
-                alert("Error. Is iSQL offline?")
+                alert("Error.\nAre you using Firefox?\nHave you installed Cors Everywhere?\nIs the Cors-E logo green in the addon bar?\nIs iSQL+ offline?")
                 $("#completeLogin").prop("disabled", false);
                 $("#completeLogin").text("Login");
             }

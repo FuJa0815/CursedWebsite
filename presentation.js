@@ -1,4 +1,4 @@
-var slides = 18;
+var slides = 19;
 var sqls = [];
 var loginData = undefined;
 
@@ -144,7 +144,7 @@ $(document).ready(function(e) {
 
     function getDelay(){
         var date = new Date();
-        var hour = date.getMinutes()+1;
+        var hour = date.getMinutes();
         return (60 - hour) * 60 * 1000; //get the milliseconds until the next full hour
     }
     

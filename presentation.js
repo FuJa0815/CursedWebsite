@@ -66,6 +66,12 @@ $(document).ready(function(e) {
     })
     $("#sqlForm").submit(function(e) {
         e.preventDefault();
+        if (loginData == undefined)
+        {
+            $("#sqlout").text("Press F5 to login");
+            return;
+        }
+
         $("#sqlout").text("")
         $.ajax({
             async: false,

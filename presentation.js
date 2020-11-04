@@ -42,7 +42,10 @@ function openLoginModal() {
                     $("#completeLogin").text("Login");
                 }
                 else if (e.includes("<td align=\"center\"><a href=\"/isqlplus/workspace.uix?event=logout\"><span class=\"xq\">Abmelden</span></a></td>"))
+                {
                     $("#loginModal").modal('hide');
+                    loginData = true;
+                }
                 else
                 {
                     alert("Unknown error. Check console")

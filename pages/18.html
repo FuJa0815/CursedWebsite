@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>REF Cursor Example 2</title>
+        <sql>CREATE OR REPLACE PROCEDURE get_departments (min_sal NUMBER, p_cursor IN OUT SYS_REFCURSOR)
+IS
+BEGIN
+  OPEN p_cursor FOR SELECT department_id , AVG(salary) as sal FROM departments
+    LEFT JOIN employees USING(department_id)
+    GROUP BY department_id
+    HAVING AVG(salary) > min_sal;
+END;
+/
+DECLARE
+  p_cursor SYS_REFCURSOR;
+  dep_id NUMBER;
+  sal FLOAT;
+BEGIN
+  get_departments(6000, p_cursor);
+  LOOP
+    FETCH p_cursor INTO dep_id, sal;
+    EXIT WHEN p_cursor%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE(dep_id || ': ' || sal);
+  END LOOP;
+END;</sql>
+    </head>
+    <body>
+        <h1>REF Cursor Example 2</h1>
+        <p>Create a procedure <code>get_departments</code> that takes the parameters:</p>
+        <ul>
+          <li>
+            <code>min_sal</code> of type <code>NUMBER</code>
+          </li>
+          <li>
+            <code>p_cursor IN OUT</code> of type <code>SYS_REFCURSOR</code>
+          </li>
+        </ul>
+        <p>The procedure opens the given cursor with an SQL that queries evey department with their average salary where the salary is above min_sal</p>
+        <p>After that write a PL/SQL block that has the following variables:</p>
+        <ul>
+          <li><code>p_cursor</code> of type <code>SYS_REFCURSOR</code></li>
+          <li><code>dep_id</code> of type <code>NUMBER</code></li>
+          <li><code>sal</code> of type <code>FLOAT</code></li>
+        </ul>
+        <p>The block calls get_departments with the minimum salary 6000 and prints every department</p>
+    </body>
+</html>

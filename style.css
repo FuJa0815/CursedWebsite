@@ -18,6 +18,15 @@ textarea {
     color: #FFF;
     font-size: 150%;
 }
+#drag {
+    position: absolute;
+    height: 7px;
+    cursor: s-resize;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 65%;
+}
 h1 {
     font-size: 120%;
 }

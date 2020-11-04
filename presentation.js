@@ -1,6 +1,7 @@
 var slides = 19;
 var sqls = [];
 var loginData = undefined;
+var isDragging = false;
 
 function currentIndex() {
     return $("#toc>.active").index();
@@ -119,6 +120,19 @@ $(document).ready(function(e) {
     $("#fullscreen").click(function() {
         document.getElementById("presentation").requestFullscreen();
     })
+    $("#drag").draggable({
+        axis: "y",
+        scroll: false,
+        drag: function( event, ui){
+            var offset = $(this).offset();
+            var yPos = offset.top;
+            var percent = yPos/$(document).height()*120 + "%";
+            var percent2 = (1-yPos/$(document).height())*120 + "%";
+            $("#drag").css("top", percent);
+            $("#firstrow").css("height", percent);
+            $("#secondrow").css("height", percent2);
+        }
+    });
     $("#presentationControls").on('slide.bs.carousel', function(e) {
         $("#toc>a").each(function() {
             $(this).removeClass("active")

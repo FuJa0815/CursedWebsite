@@ -15,6 +15,7 @@ The basic structure of a slide looks like this:
     </body>
 </html>
 ```
+In the presentation.js you need to define how many slides there are
 
 ## Code blocks:
 Inline code blocks are surrounded with `<code>`<br>

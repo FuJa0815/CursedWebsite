@@ -116,6 +116,9 @@ $(document).ready(function(e) {
     $("#toc>a").click(function() {
         $("#presentationControls").carousel($(this).index())
     })
+    $("#fullscreen").click(function() {
+        document.getElementById("presentation").requestFullscreen();
+    })
     $("#presentationControls").on('slide.bs.carousel', function(e) {
         $("#toc>a").each(function() {
             $(this).removeClass("active")

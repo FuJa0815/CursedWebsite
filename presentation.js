@@ -126,9 +126,9 @@ $(document).ready(function(e) {
         drag: function( event, ui){
             var offset = $(this).offset();
             var yPos = offset.top;
-            var percent = yPos/$(document).height()*120 + "%";
-            var percent2 = (1-yPos/$(document).height())*120 + "%";
-            $("#drag").css("top", percent);
+            var percentage = yPos/$(window).height()*100;
+            var percent = percentage + "%";
+            var percent2 = 100-percentage + "%";
             $("#firstrow").css("height", percent);
             $("#secondrow").css("height", percent2);
         }

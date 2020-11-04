@@ -23,7 +23,23 @@ END;</sql>
     </head>
     <body>
         <h1>REF Cursor Example 1</h1>
-        <p>Execute and understand the code below.</p>
+        <p>Create a procedure <code>open_cursor</code> that takes the parameters:</p>
+        <ul>
+          <li>
+            <code>p_department_id</code> of type <code>departments.department_id%TYPE</code>
+          </li>
+          <li>
+            <code>p_employees IN OUT</code> of type <code>SYS_REFCURSOR</code>
+          </li>
+        </ul>
+        <p>The procedure opens the given cursor with an SQL that queries <code>first_name</code> and <code>last_name</code> from the <code>employees</code> where the department id matches the parameter</p>
+        <p>After that write a PL/SQL block that has the following variables:</p>
+        <ul>
+          <li><code>e_cursor</code> of type <code>SYS_REFCURSOR</code></li>
+          <li><code>e_firstname</code> of type <code>employees.first_name%TYPE</code></li>
+          <li><code>e_lastname</code> of type <code>employees.last_name%TYPE</code></li>
+        </ul>
+        <p>The block calls open_cursor and prints every name</p>
         <p>Try to rewrite the code to use a <code>FOR</code> loop!</p>
     </body>
 </html>

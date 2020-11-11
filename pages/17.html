@@ -2,6 +2,24 @@
 <html>
     <head>
         <title>REF Cursor Example 1</title>
+        <sql>CREATE OR REPLACE PROCEDURE open_cursor (p_department_id IN departments.department_id%TYPE, p_employees IN OUT SYS_REFCURSOR)
+IS
+BEGIN
+  OPEN p_employees FOR SELECT first_name, last_name FROM employees WHERE department_id = p_department_id;
+END;
+/
+DECLARE
+  e_cursor SYS_REFCURSOR;
+  e_firstname employees.first_name%TYPE;
+  e_lastname employees.last_name%TYPE;
+BEGIN
+  open_cursor(100, e_cursor);
+  LOOP
+    FETCH e_cursor INTO e_firstname, e_lastname;
+    EXIT WHEN e_cursor%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE(e_firstname || ' ' || e_lastname);
+  END LOOP;
+END;</sql>
     </head>
     <body>
         <h1>REF Cursor Example 1</h1>

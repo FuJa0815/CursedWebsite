@@ -2,6 +2,27 @@
 <html>
     <head>
         <title>REF Cursor Example 2</title>
+        <sql>CREATE OR REPLACE PROCEDURE get_departments (min_sal NUMBER, p_cursor IN OUT SYS_REFCURSOR)
+IS
+BEGIN
+  OPEN p_cursor FOR SELECT department_id , AVG(salary) as sal FROM departments
+    LEFT JOIN employees USING(department_id)
+    GROUP BY department_id
+    HAVING AVG(salary) > min_sal;
+END;
+/
+DECLARE
+  p_cursor SYS_REFCURSOR;
+  dep_id NUMBER;
+  sal FLOAT;
+BEGIN
+  get_departments(6000, p_cursor);
+  LOOP
+    FETCH p_cursor INTO dep_id, sal;
+    EXIT WHEN p_cursor%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE(dep_id || ': ' || sal);
+  END LOOP;
+END;</sql>
     </head>
     <body>
         <h1>REF Cursor Example 2</h1>
